@@ -308,7 +308,7 @@ cargo test --workspace                  # run the Rust test suite
 cargo run -p zwatermark-cli -- --help   # try the CLI
 ```
 
-Pre-built binaries live at [github.com/TheHolyOneZ/ZWatermark/releases](https://github.com/TheHolyOneZ/ZWatermark/releases).
+Pre-built binaries are hosted on the landing page: [zsync.eu/zwatermark/#downloads](https://zsync.eu/zwatermark/#downloads). GitHub does not publish releases for this project.
 
 ---
 
