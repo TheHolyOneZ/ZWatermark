@@ -1,0 +1,77 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/zwatermark-core",
+    "cli/zwatermark-cli",
+    "src-tauri",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+authors = ["TheHolyOneZ"]
+repository = "https://github.com/TheHolyOneZ/ZWatermark"
+
+[workspace.dependencies]
+# core lib
+zwatermark-core = { path = "crates/zwatermark-core" }
+
+# crypto
+ed25519-dalek = { version = "2", features = ["rand_core", "zeroize"] }
+blake3 = "1"
+argon2 = "0.5"
+aes-gcm = "0.10"
+rand = "0.8"
+getrandom = "0.2"
+zeroize = { version = "1", features = ["derive"] }
+subtle = "2"
+
+# error correction
+reed-solomon-erasure = "6"
+
+# image i/o
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "bmp"] }
+imageproc = { version = "0.25", default-features = false }
+ab_glyph = "0.2"
+
+# math / dsp
+ndarray = "0.16"
+
+# serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde-big-array = "0.5"
+bincode = "1"
+
+# util
+thiserror = "1"
+anyhow = "1"
+hex = "0.4"
+uuid = { version = "1", features = ["v4", "serde"] }
+tracing = "0.1"
+bitflags = { version = "2", features = ["serde"] }
+
+# timestamping (RFC 3161 + OpenTimestamps)
+ureq = { version = "2", default-features = false, features = ["tls"] }
+sha1 = "0.10"
+sha2 = "0.10"
+sha3 = "0.10"
+ripemd = "0.1"
+der = { version = "0.7", features = ["alloc", "derive", "oid"] }
+const-oid = "0.9"
+
+# cli
+clap = { version = "4", features = ["derive"] }
+
+# tauri
+tauri = { version = "2", features = ["tray-icon", "macos-private-api", "image-png", "protocol-asset"] }
+
+[profile.release]
+panic = "abort"
+lto = "fat"
+codegen-units = 1
+strip = true
+
+[profile.bench]
+lto = "fat"

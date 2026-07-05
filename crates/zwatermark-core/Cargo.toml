@@ -1,0 +1,47 @@
+[package]
+name = "zwatermark-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Cryptographically-signed steganographic watermark encoder/decoder for screenshots"
+
+[lib]
+name = "zwatermark_core"
+crate-type = ["rlib"]
+
+[dependencies]
+ed25519-dalek.workspace = true
+blake3.workspace = true
+argon2.workspace = true
+aes-gcm.workspace = true
+rand.workspace = true
+getrandom.workspace = true
+zeroize.workspace = true
+subtle.workspace = true
+reed-solomon-erasure.workspace = true
+image.workspace = true
+imageproc.workspace = true
+ab_glyph.workspace = true
+ndarray.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+serde-big-array.workspace = true
+bincode.workspace = true
+thiserror.workspace = true
+hex.workspace = true
+uuid.workspace = true
+tracing.workspace = true
+bitflags.workspace = true
+ureq.workspace = true
+sha1.workspace = true
+sha2.workspace = true
+sha3.workspace = true
+ripemd.workspace = true
+der.workspace = true
+const-oid.workspace = true
+
+[dev-dependencies]
+anyhow.workspace = true
+tempfile = "3"

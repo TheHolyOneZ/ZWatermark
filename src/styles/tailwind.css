@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "./glass.css";
+
+@theme {
+  --color-bg-0: var(--zw-bg-0);
+  --color-bg-1: var(--zw-bg-1);
+  --color-text-1: var(--zw-text-1);
+  --color-text-2: var(--zw-text-2);
+  --color-text-3: var(--zw-text-3);
+  --color-accent: var(--zw-accent);
+  --color-success: var(--zw-success);
+  --color-error: var(--zw-error);
+  --color-warning: var(--zw-warning);
+
+  --font-ui: "Inter", ui-sans-serif, -apple-system, "Segoe UI Variable", "Ubuntu", "Cantarell", "Noto Sans", "DejaVu Sans", sans-serif;
+
+
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, -apple-system, "Segoe UI Variable", sans-serif;
+
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Consolas, "Ubuntu Mono", "DejaVu Sans Mono", "Liberation Mono", monospace;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  font-family: var(--font-ui);
+  color: var(--zw-text-1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "cv05" 1, "cv11" 1;
+}
+
+[data-tauri-drag-region] {
+  -webkit-app-region: drag;
+  app-region: drag;
+}
+[data-tauri-drag-region] button,
+[data-tauri-drag-region] input,
+[data-tauri-drag-region] a,
+[data-tauri-drag-region] select {
+  -webkit-app-region: no-drag;
+  app-region: no-drag;
+}
+
+
+.zw-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(62vmax 42vmax at 8% -4%,   rgba(62, 233, 143, 0.13), transparent 56%),
+    radial-gradient(52vmax 40vmax at 100% 12%, rgba(147, 242, 196, 0.08), transparent 56%),
+    radial-gradient(74vmax 52vmax at 50% 106%, rgba(28, 112, 74, 0.13), transparent 62%),
+    linear-gradient(180deg, #0b120e 0%, #080d0b 55%, #060908 100%);
+  color: var(--zw-text-1);
+}
+
+.zw-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--zw-tile-grid), var(--zw-noise);
+  background-size: auto, 160px 160px;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, black 30%, rgba(0, 0, 0, 0.35) 100%);
+          mask-image: radial-gradient(120% 100% at 50% 0%, black 30%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+.zw-body  { display: flex; flex: 1; min-height: 0; }
+.zw-main  { flex: 1; overflow: auto; padding: 26px 32px 40px; }
+
+
+.zw-main > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

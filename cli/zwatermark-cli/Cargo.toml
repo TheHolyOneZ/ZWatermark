@@ -1,0 +1,28 @@
+[package]
+name = "zwatermark-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Command-line interface for ZWatermark"
+
+[[bin]]
+name = "zwatermark"
+path = "src/main.rs"
+
+[dependencies]
+zwatermark-core.workspace = true
+clap.workspace = true
+anyhow.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+image.workspace = true
+hex.workspace = true
+tracing.workspace = true
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+rpassword = "7"
+indicatif = "0.17"
+walkdir = "2"
+csv = "1"
+uuid = { workspace = true }

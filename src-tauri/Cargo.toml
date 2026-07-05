@@ -1,0 +1,54 @@
+[package]
+name = "zwatermark"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Invisible screenshot watermarking"
+
+[lib]
+name = "zwatermark_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri.workspace = true
+tauri-plugin-fs = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-os = "2"
+tauri-plugin-window-state = "2"
+tauri-plugin-single-instance = "2"
+
+zwatermark-core.workspace = true
+
+serde.workspace = true
+serde_json.workspace = true
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "fs", "sync", "signal", "io-util"] }
+tokio-util = { version = "0.7", features = ["io"] }
+
+ed25519-dalek.workspace = true
+blake3.workspace = true
+argon2.workspace = true
+aes-gcm.workspace = true
+rand.workspace = true
+zeroize.workspace = true
+subtle.workspace = true
+
+uuid.workspace = true
+bitflags.workspace = true
+
+tracing.workspace = true
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+sysinfo = { version = "0.32", default-features = false, features = ["system"] }
+notify = "6"
+image.workspace = true
+hex = "0.4"
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+csv = "1"
+ureq = { version = "2", features = ["tls"] }
+rayon = "1.10"
+dirs = "5"
