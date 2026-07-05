@@ -169,7 +169,7 @@ Anyone with the app (or the CLI, or eventually the browser verifier) can open a 
 
 That's the honest limit of any watermarking system: it can prove a file came from a specific *key*, but linking that key to your *name* still depends on you publishing your fingerprint somewhere trustworthy (your website, GitHub profile, Nostr, or eventually the built-in registry).
 
-### The `.zwm` sidecar answers "when?"
+### The `.zwm` sidecar answers "when?" &nbsp;<sub>🟠 Beta</sub>
 
 A signature proves *who* signed a file. It does not prove *when*. Without proof of time, a thief could strip your mark, re-mark the same image with their own key, and claim they were first.
 
@@ -178,6 +178,8 @@ That's what the optional `.zwm` sidecar is for. When timestamping is turned on, 
 Then it goes further: it also submits the same hash to **OpenTimestamps**, which folds thousands of submitted hashes into a Merkle tree and publishes the tree's root into a **Bitcoin block**. About a day later, your image's existence is provably anchored to a moment in Bitcoin's history — a timeline no one can rewrite without redoing years of mining, which no one can afford.
 
 Only the hash is sent. No pixels, no metadata, no identity information is transmitted.
+
+> **⚠️ Beta status.** The timestamping pipeline (write, sidecar archive, RFC 3161 + OpenTimestamps verify against live TSAs and Bitcoin block headers) works end-to-end and is covered by integration tests. But it hasn't been battle-tested against every real-world TSA quirk, network outage, or OpenTimestamps upgrade edge case yet. Treat a verified timestamp as **strong evidence** — not court-grade proof — for now. Bug reports welcome.
 
 ### The whole point: nothing leaves your machine unless you say so
 

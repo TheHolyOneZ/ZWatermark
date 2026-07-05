@@ -370,10 +370,14 @@ export function Mark() {
             <div className="flex items-center justify-between gap-2 mb-2">
               <div className="zw-h2 inline-flex items-center gap-2">
                 <Anchor size={16} /> Provenance evidence
+                <Badge variant="warning">Beta</Badge>
                 <HelpTip
                   ariaLabel="Why external timestamps?"
                   content={
                     <div className="flex flex-col gap-1.5">
+                      <div>
+                        <strong>Beta:</strong> the timestamping pipeline (RFC 3161 + OpenTimestamps) works end-to-end and the sidecar is written and verified — but network reliability, TSA quirks, and OpenTimestamps upgrade timing haven't been battle-tested across the wild. Treat verified timestamps as strong evidence, not court-grade proof yet.
+                      </div>
                       <div>
                         Your public key is already embedded in the mark, so anyone can verify the signature. But a signature alone doesn't prove <em>when</em> — a thief could strip your mark, re-sign with their own key, and claim priority.
                       </div>

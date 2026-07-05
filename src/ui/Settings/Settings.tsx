@@ -179,8 +179,13 @@ export function Settings() {
 
       {tab === "timestamps" && (
         <Section
-          title="External timestamps"
-          description="RFC 3161 timestamp authorities give any verifier cryptographic proof this image existed by a specific time."
+          title={
+            <span className="inline-flex items-center gap-2">
+              External timestamps
+              <Badge variant="warning">Beta</Badge>
+            </span>
+          }
+          description="RFC 3161 timestamp authorities give any verifier cryptographic proof this image existed by a specific time. Feature works end-to-end but hasn't been battle-tested across the wild — treat verified timestamps as strong evidence, not court-grade proof yet."
         >
           <Card>
             <div className="flex flex-col gap-4">

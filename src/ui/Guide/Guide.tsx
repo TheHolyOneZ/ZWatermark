@@ -495,7 +495,7 @@ export function Guide() {
                   <div className="pt-2 border-t border-[color:var(--zw-border-hair)]">
                     <p className="zw-small">
                       <strong>Where these standards come from.</strong>{" "}
-                      <a href="https:
+                      <a href="https://datatracker.ietf.org/doc/html/rfc3161" target="_blank" rel="noreferrer">RFC 3161</a>
                       {" "}has been the industry Time-Stamp Protocol since 2001.
                       It's what backs Microsoft Authenticode code signing,
                       Adobe PDF long-term validation (PAdES), and EU eIDAS
